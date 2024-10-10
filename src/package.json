@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^4.21.1",
+    "node-canvas-api": "^1.7.6"
+  }
+}
