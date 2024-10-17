@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "node-canvas-api": "^1.7.6"
+  }
+}
