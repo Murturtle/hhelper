@@ -2,6 +2,7 @@
   "dependencies": {
     "express": "^4.21.1",
     "node-canvas-api": "^1.7.6",
+    "socket.io": "^4.8.0",
     "socketio": "^1.0.0"
   }
 }
