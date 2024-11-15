@@ -27,20 +27,21 @@ io.on('connection', (socket) => {
     try{
       req.json().then((json) => {
         const classes = {}
-        console.log(json)
+        //console.log(json)
         for( key in json ){
-          console.log(json[key].name)
+          //console.log(json[key].name)
           classes[json[key].id] = {
             "name":json[key].name,
             "id":json[key].id,
           }
-          socket.join(json[key].id)
+          socket.join(json[key].id);
+          io.in("145381").emit("msg","hi "+json[key].id);
         }
         socket.emit("classes",classes)
         
       })
     } catch (err){
-      console.log(err)
+      //console.log(err)
     }
     })
   })

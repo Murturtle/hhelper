@@ -37,6 +37,7 @@ function init(){
     
     socket.on("classes", (data)=>{
         console.log(data);
+        classes = data;
         for(key in data){
             const classBox = document.createElement("button");
             classBox.innerText = data[key].name;
@@ -47,11 +48,27 @@ function init(){
             classBox.style.border = "solid 1px black"
             classBox.style.padding = "10px";
             classBox.style.borderRadius = "5px";
+            classBox.id = key;
+            classBox.onclick = function(){
+                openClass(classBox.id);
+            }
             classSelector.appendChild(classBox)
+
+            socket.on("msg",function(data){
+                console.log(key+" "+data);
+            })
         }
         loginBox.close();
     })
 }
 
+
+function openClass(id){
+    const classThing = new WinBox(classes[id].name, {
+        title: classes[id].name
+    });
+}
+
+classes = {};
 
 document.addEventListener("load",init())
